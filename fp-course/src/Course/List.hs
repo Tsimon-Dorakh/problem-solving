@@ -482,6 +482,11 @@ isEmpty Nil =
 isEmpty (_:._) =
   False
 
+isNotEmpty ::
+  List a
+  -> Bool
+isNotEmpty = not . isEmpty
+
 span ::
   (a -> Bool)
   -> List a
