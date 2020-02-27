@@ -1,3 +1,3 @@
 # problem-solving
 
-Keep doing.
+Keep doing. Stay curious.
