@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'td.problemsolving'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+//    testImplementation('junit.platform:junit-platform-runner')
+
+    testImplementation('com.pholser:junit-quickcheck-core:0.9.1') {
+//    testImplementation(group: 'com.pholser', name: 'junit-quickcheck-core', version: '0.9.1') {
+        exclude group: 'junit',  module: 'junit'
+    }
+    testImplementation group: 'com.pholser', name: 'junit-quickcheck-generators', version: '0.9.1'
+    testImplementation group: 'com.google.guava', name: 'guava', version: '29.0-jre'
+
+}
+
+test {
+//    useJUnitPlatform()
+}
