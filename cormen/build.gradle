@@ -24,7 +24,7 @@ dependencies {
 
     testImplementation('com.pholser:junit-quickcheck-core:0.9.1') {
 //    testImplementation(group: 'com.pholser', name: 'junit-quickcheck-core', version: '0.9.1') {
-        exclude group: 'junit',  module: 'junit'
+//        exclude group: 'junit',  module: 'junit'
     }
     testImplementation group: 'com.pholser', name: 'junit-quickcheck-generators', version: '0.9.1'
     testImplementation group: 'com.google.guava', name: 'guava', version: '29.0-jre'
@@ -32,5 +32,5 @@ dependencies {
 }
 
 test {
-//    useJUnitPlatform()
+    useJUnitPlatform()
 }

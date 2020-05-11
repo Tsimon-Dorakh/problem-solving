@@ -4,11 +4,8 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static td.problemsolving.cormen.quicksort.QuickSort.quicksort;
 import static td.problemsolving.cormen.quicksort.QuickSort.quicksort_;
-import static td.problemsolving.cormen.utils.Print.print;
 
 import com.pholser.junit.quickcheck.Property;
-import com.pholser.junit.quickcheck.When;
-import com.pholser.junit.quickcheck.generator.InRange;
 import com.pholser.junit.quickcheck.generator.Size;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import org.junit.runner.RunWith;
