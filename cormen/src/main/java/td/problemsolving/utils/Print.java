@@ -16,4 +16,11 @@ public class Print {
 
         System.out.println();
     }
+
+    public static void print(int[][] xss) {
+        for (int[] xs : xss) {
+            print(xs);
+        }
+
+    }
 }

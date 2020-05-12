@@ -19,16 +19,21 @@ public class QuickSortRandomized {
         return QuickSort.partition(xs, lo, hi);
     }
 
-    static void quicksort_(int[] xs) {
-        quicksort_(xs, 0, xs.length - 1);
+    static int quicksort_(int[] xs) {
+        return quicksort_(xs, 0, xs.length - 1, 0);
     }
 
-    static void quicksort_(int[] xs, int p, int r) {
+    static int quicksort_(int[] xs, int p, int r, int level) {
         if (p < r) {
             int[] idxs = partition_(xs, p, r);
-            quicksort(xs, p, idxs[0] - 1);
-            quicksort(xs, idxs[1] + 1, r);
+
+            level = Math.max(
+                    quicksort_(xs, p, idxs[0] - 1, level + 1),
+                    quicksort_(xs, idxs[1] + 1, r, level + 1)
+            );
         }
+
+        return level;
     }
 
     static int[] partition_(int[] xs, int lo, int hi) {
