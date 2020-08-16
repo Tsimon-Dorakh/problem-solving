@@ -11,6 +11,12 @@ public class Print {
         System.out.println();
     }
 
+    public static void printXss(ArrayList<ArrayList<Integer>> xss) {
+        for (ArrayList<Integer> xs : xss) {
+            print(xs);
+        }
+    }
+
     public static void print(boolean[] xs) {
         for (boolean x : xs) {
             System.out.print((x ? 't' : 'f') + ", ");
