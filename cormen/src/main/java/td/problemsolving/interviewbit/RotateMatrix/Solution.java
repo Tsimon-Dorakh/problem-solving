@@ -18,26 +18,16 @@ public class Solution {
 
         while (level <= (n - 1) / 2) {
             for (int x = level; x < n - level - 1; x++) {
-                int x1 = x;
-                int y1 = level;
+                int x1 = x, y1 = level,
+                    x2 = n - level - 1, y2 = x,
+                    x3 = n - x - 1, y3 = n - level - 1,
+                    x4 = level, y4 = n - x - 1;
 
-                int x2 = n - level - 1;
-                int y2 = x;
-
-                int num = xss.get(y2).get(x2);
-                xss.get(y2).set(x2, xss.get(y1).get(x1));
-
-                int x3 = n - x - 1;
-                int y3 = n - level - 1;
-                int tmp = xss.get(y3).get(x3);
-                xss.get(y3).set(x3, num);
-                num = tmp;
-
-                int x4 = level;
-                int y4 = n - x - 1;
-                tmp = xss.get(y4).get(x4);
-                xss.get(y4).set(x4, num);
-                xss.get(y1).set(x1, tmp);
+                int tmp = xss.get(y1).get(x1);
+                xss.get(y1).set(x1, xss.get(y4).get(x4));
+                xss.get(y4).set(x4, xss.get(y3).get(x3));
+                xss.get(y3).set(x3, xss.get(y2).get(x2));
+                xss.get(y2).set(x2, tmp);
             }
 
             level++;
