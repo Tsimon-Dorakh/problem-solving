@@ -8,21 +8,26 @@ import java.util.List;
  */
 public class Solution {
     public int findMin(final List<Integer> xs) {
-        if (xs.get(0) < xs.get(xs.size() - 1)) return xs.get(0);
-
         int l = 0;
-        int r = xs.size();
+        int r = xs.size() - 1;
 
         while (l <= r) {
-            int m = (l + r) / 2;
+            if (xs.get(l) <= xs.get(r)) {
+                return xs.get(l);
+            }
 
-            if (xs.get(m) > xs.get(0)) l = m + 1;
+            int m = (l + r) / 2;
+            int prev = (m + xs.size() - 1) % xs.size();
+            int next = (m + 1) % xs.size();
+
+            if (xs.get(m) < xs.get(prev) && xs.get(m) < xs.get(next)) {
+                return xs.get(m);
+            }
+
+            if (xs.get(m) >= xs.get(0)) l = m + 1;
             else r = m - 1;
         }
 
-        if (l >= xs.size()) return xs.get(r);
-        if (r < 0) return xs.get(l);
-
-        return Math.min(xs.get(l), xs.get(r));
+        return 0;
     }
 }
