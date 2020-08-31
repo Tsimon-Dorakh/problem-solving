@@ -17,6 +17,14 @@ public class Print {
         }
     }
 
+    public static void print(char[] xs) {
+        for (char x : xs) {
+            System.out.print(x + ", ");
+        }
+
+        System.out.println();
+    }
+
     public static void print(boolean[] xs) {
         for (boolean x : xs) {
             System.out.print((x ? 't' : 'f') + ", ");
