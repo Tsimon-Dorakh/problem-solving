@@ -13,17 +13,19 @@ public class Solution {
     }
 
     public String fractionToDecimal(long x, long y) {
-        String integer;
-        if (x / y == 0 && (1. * x / y < 0)) {
-            integer = "-" + x / y;
-        } else {
-            integer = String.valueOf(x / y);
-        }
+        if (x == 0) return "0";
 
-        x = x % y;
+        String integer = "";
+
+        if (x < 0 ^ y < 0) {
+            integer = "-";
+        }
 
         x = Math.abs(x);
         y = Math.abs(y);
+
+        integer += String.valueOf(x / y);
+        x = x % y;
 
         int pos = 0;
         StringBuilder decimal = new StringBuilder();
@@ -42,8 +44,7 @@ public class Solution {
             } else {
                 map.put(x, pos++);
                 x *= 10;
-                long n = x / y;
-                decimal.append(n);
+                decimal.append(x / y);
                 x = x % y;
             }
         }
