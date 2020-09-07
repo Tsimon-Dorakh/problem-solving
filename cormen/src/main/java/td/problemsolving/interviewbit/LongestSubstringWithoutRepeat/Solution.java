@@ -7,7 +7,6 @@ import java.util.Set;
  * Longest Substring Without Repeat
  * https://www.interviewbit.com/problems/longest-substring-without-repeat/
  */
-
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
