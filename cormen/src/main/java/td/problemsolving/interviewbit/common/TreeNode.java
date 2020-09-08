@@ -1,5 +1,8 @@
 package td.problemsolving.interviewbit.common;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 public class TreeNode {
@@ -25,6 +28,11 @@ public class TreeNode {
         return Objects.hash(val, left, right);
     }
 
+    @Override
+    public String toString() {
+        return treeToString(this);
+    }
+
     public static TreeNode createTree(Integer[] xs) {
         return createTree(xs, 1);
     }
@@ -37,6 +45,48 @@ public class TreeNode {
         root.right = createTree(xs, 2 * l + 1);
 
         return root;
+    }
+
+    static String treeToString(TreeNode a) {
+        StringBuilder s = new StringBuilder();
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.push(a);
+
+        while (!queue.isEmpty()) {
+            List<TreeNode> treeNodes = new ArrayList<>(queue);
+            queue.clear();
+
+            boolean allNulls = true;
+            for (TreeNode treeNode : treeNodes) {
+                allNulls &= treeNode == null;
+            }
+
+            if (!allNulls) {
+                for (TreeNode treeNode : treeNodes) {
+                    s.append(treeNode != null ? treeNode.val : "null").append(" ");
+
+                    queue.add(treeNode != null ? treeNode.left : null);
+                    queue.add(treeNode != null ? treeNode.right : null);
+                }
+            }
+        }
+
+        return s.toString();
+    }
+
+    public int depth() {
+        return depth(this, -1, 0);
+    }
+
+    static int depth(TreeNode a, int current, int max) {
+        current++;
+        max = Math.max(max, current);
+
+        if (a.left != null) max = Math.max(max, depth(a.left, current, max));
+        if (a.right != null) max = Math.max(max, depth(a.right, current, max));
+
+        return max;
     }
 
 }
