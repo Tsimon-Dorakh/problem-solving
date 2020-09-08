@@ -64,7 +64,7 @@ public class TreeNode {
 
             if (!allNulls) {
                 for (TreeNode treeNode : treeNodes) {
-                    s.append(treeNode != null ? treeNode.val : "null").append(" ");
+                    s.append(treeNode != null ? treeNode.val : "null").append(", ");
 
                     queue.add(treeNode != null ? treeNode.left : null);
                     queue.add(treeNode != null ? treeNode.right : null);
