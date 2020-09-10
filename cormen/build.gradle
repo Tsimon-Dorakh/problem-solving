@@ -28,6 +28,7 @@ dependencies {
     }
     testImplementation group: 'com.pholser', name: 'junit-quickcheck-generators', version: '0.9.1'
     testImplementation group: 'com.google.guava', name: 'guava', version: '29.0-jre'
+    testImplementation group: 'com.github.mifmif', name: 'generex', version: '1.0.2'
 
 }
 
