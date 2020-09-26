@@ -41,6 +41,14 @@ public class Print {
         System.out.println();
     }
 
+    public static void print(Integer[] xs) {
+        for (int x : xs) {
+            System.out.print(x + ", ");
+        }
+
+        System.out.println();
+    }
+
     public static void print(long[] xs) {
         for (long x : xs) {
             System.out.print(x + ", ");
