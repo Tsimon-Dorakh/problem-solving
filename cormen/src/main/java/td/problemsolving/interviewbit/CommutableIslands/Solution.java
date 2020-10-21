@@ -55,6 +55,8 @@ public class Solution {
             int px = find(x);
             int py = find(y);
 
+            if (px == py) return;
+
             if (data[px] <= data[py]) {
                 data[px] += data[py];
                 data[py] = px;
